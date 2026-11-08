@@ -1,425 +1,223 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFC Vendas - Soluções Premium de Identificação em NFC</title>
-    <style>
-        /* ===== CORE STYLES ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NFC Soluções: plaquinhas, chaveiros e cartões NFC personalizados para conectar seus clientes aos seus canais digitais com um toque.">
+  <title>NFC Soluções | Sua marca conectada em um toque</title>
+  <style>
+    :root{--navy:#061426;--navy2:#0b2340;--blue:#0798f5;--cyan:#27c5ff;--green:#16bd59;--white:#f7fbff;--muted:#b7c7d8}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;background:#071629;color:var(--white);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1160px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(4,16,31,.96);border-bottom:1px solid rgba(39,197,255,.35);backdrop-filter:blur(12px)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-size:1.45rem;font-weight:800;letter-spacing:-.5px}.brand span{color:var(--cyan)}
+    .tagline{display:block;font-size:.72rem;color:var(--muted);font-weight:400;letter-spacing:.3px}
+    nav{display:flex;gap:23px;align-items:center;font-size:.92rem}
+    nav a:hover{color:var(--cyan)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 21px;border-radius:999px;font-weight:700;transition:.2s;border:1px solid transparent}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .btn-blue{background:linear-gradient(110deg,#087cf0,#12b9f5);color:white}
+    .btn-green{background:var(--green);color:white}
+    .btn-outline{border-color:#9cc8e8;color:white}
+    .hero{position:relative;overflow:hidden;padding:86px 0 70px;background:radial-gradient(ellipse at 75% 40%,#124d7a 0%,transparent 42%),linear-gradient(115deg,#061426,#0b2b4a 62%,#071629)}
+    .hero:after{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(4,15,29,.94),rgba(4,15,29,.68) 52%,rgba(4,15,29,.24)),url('imagens/fundo-nfc.jpg');background-size:cover;background-position:center;opacity:.5;pointer-events:none}
+    .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:45px}
+    .eyebrow{color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:.8rem}
+    h1{font-size:clamp(2.5rem,5vw,4.4rem);line-height:1.05;margin:14px 0 20px;letter-spacing:-2px}
+    h1 span{color:var(--cyan)}
+    .hero p{font-size:1.12rem;color:#d5e4f2;max-width:610px;margin-bottom:28px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+    .hero-art{min-height:330px;border:1px solid rgba(75,190,255,.4);border-radius:26px;background:linear-gradient(145deg,rgba(10,50,82,.8),rgba(3,16,31,.7));display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;box-shadow:0 25px 80px #0007}
+    .hero-art .symbol{font-size:6rem;line-height:1;color:var(--cyan);text-shadow:0 0 35px #009dff}
+    .hero-art strong{display:block;font-size:1.45rem;margin-top:14px}
+    .hero-art small{color:var(--muted)}
+    .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:38px}
+    .trust div{border-top:1px solid #2674a5;padding-top:12px;color:#d5e4f2;font-size:.88rem}
+    section{padding:76px 0}
+    .section-head{text-align:center;max-width:760px;margin:0 auto 38px}
+    .section-head h2{font-size:clamp(1.9rem,3vw,2.7rem);line-height:1.15;margin-bottom:12px}
+    .section-head h2 span{color:var(--cyan)}
+    .section-head p{color:var(--muted)}
+    .products{background:#f1f6fb;color:#10253b}
+    .products .section-head p{color:#52667a}
+    .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .product{background:white;border-radius:18px;overflow:hidden;box-shadow:0 12px 35px #08213b18}
+    .product-visual{height:205px;background:linear-gradient(135deg,#dbeeff,#a8cce8);display:flex;align-items:center;justify-content:center;color:#07558c;font-size:4.5rem}
+    .product-visual img{width:100%;height:100%;object-fit:cover}
+    .product-body{padding:22px}.product h3{font-size:1.2rem;margin-bottom:8px}.product p{color:#53677a;font-size:.95rem}
+    .benefits{background:linear-gradient(180deg,#081a30,#0b2845)}
+    .benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .benefit{padding:25px;border:1px solid #1b5279;border-radius:16px;background:linear-gradient(145deg,#0d2b49,#081a30)}
+    .benefit .ico{font-size:1.8rem;color:var(--cyan)}
+    .benefit h3{margin:10px 0 7px}.benefit p{color:var(--muted);font-size:.95rem}
+    .how{background:#0a2038}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .step{padding:25px;background:#102e4c;border-radius:16px}
+    .number{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--blue);font-weight:800;margin-bottom:12px}
+    .step p{color:var(--muted);margin-top:7px}
+    .cta{background:linear-gradient(110deg,#0758a0,#087fc1);text-align:center;padding:65px 0}
+    .cta h2{font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:10px}.cta p{color:#e3f3ff;margin-bottom:23px}
+    .social{background:#f1f6fb;color:#10253b}
+    .social-links{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+    .social-links a{min-width:175px}
+    footer{padding:30px 0;background:#030d19;color:#9fb2c5;text-align:center;font-size:.9rem}
+    footer strong{color:white}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.9;
-            color: #333;
-            background: #f4f4f4;
-        }
+    .applications{background:linear-gradient(180deg,#061426,#0b2845)}
+    .applications .eyebrow{margin-bottom:8px}
+    .application-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+    .application-card{overflow:hidden;border:1px solid #23638c;border-radius:18px;background:linear-gradient(155deg,#102e4b,#071a2e);box-shadow:0 16px 35px #0003}
+    .application-card img{display:block;width:100%;height:205px;object-fit:cover;background:#102c42}
+    .application-copy{padding:22px}
+    .application-tag{display:inline-block;color:#63d4ff;font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+    .application-copy h3{font-size:1.25rem;line-height:1.2;margin-bottom:10px}
+    .application-copy p{color:#c1d2e1;font-size:.93rem}
+    .application-copy ul{padding-left:19px;margin:13px 0;color:#e2edf6;font-size:.9rem}
+    .application-copy li{margin:5px 0}
+    .application-copy li::marker{color:#31c5ff}
+    .application-note{border-left:3px solid #f0bd55;padding-left:10px;font-size:.82rem!important;color:#f1d9a6!important;margin-top:12px}
+    .application-bottom{margin-top:28px;padding:25px;border:1px solid #2878a8;border-radius:18px;background:#0e3150;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .application-bottom strong{font-size:1.1rem}.application-bottom span{color:#bfd3e4;flex:1;min-width:220px}
+    @media(max-width:850px){.application-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){.application-grid{grid-template-columns:1fr}.application-card img{height:220px}.application-bottom{align-items:flex-start;flex-direction:column}}
 
-        /* ===== HEADER ===== */
-        header {
-            background: #1a2a3a;
-            color: #fff;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #fff;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 35px;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #e74c3c;
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            color: #fff;
-            margin-bottom: 20px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        }
-
-        .hero h1 span {
-            display: block;
-            font-size: 2.5rem;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: #b0c4de;
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            background: #e67e22;
-            color: #fff;
-            padding: 16px 40px;
-            border-radius: 10px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-
-        .btn-primary:hover {
-            background: #d35400;
-        }
-
-        .btn-secondary {
-            background: #3498db;
-            color: #fff;
-            border: none;
-            padding: 16px 40px;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background: #2980b9;
-        }
-
-        /* ===== CONTENT SECTION ===== */
-        .content-section {
-            padding: 100px 20px 60px;
-        }
-
-        .section-title {
-            font-size: 2.8rem;
-            color: #2c3e50;
-            margin-bottom: 60px;
-            text-align: center;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: #e74c3c;
-            margin: 15px auto 0;
-        }
-
-        /* ===== SERVICES SECTION ===== */
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 0 20px 100px;
-        }
-
-        .service-card {
-            background: #fff;
-            border-radius: 15px;
-            padding: 40px 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-card i {
-            font-size: 2.5rem;
-            color: #3498db;
-            margin-bottom: 20px;
-        }
-
-        .service-card h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-
-        /* ===== WHY NFC SECTION ===== */
-        .why-nfc {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 0 20px 100px;
-        }
-
-        .benefit-card {
-            background: #fff;
-            border-radius: 15px;
-            padding: 40px 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .benefit-card h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-
-        .benefit-card p {
-            color: #666;
-            line-height: 1.8;
-        }
-
-        /* ===== CONTACT SECTION ===== */
-        .contact-section {
-            background: #f8f9fa;
-            padding: 80px 20px;
-        }
-
-        .contact-section .section-title {
-            color: #e67e22;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .contact-card {
-            background: #fff;
-            border-radius: 15px;
-            padding: 40px 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-
-        .contact-card h3 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-
-        .contact-card p {
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .contact-buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .btn-contact {
-            background: #e67e22;
-            color: #fff;
-            padding: 12px 30px;
-            border-radius: 10px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-
-        .btn-contact:hover {
-            background: #d35400;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: #1a2a3a;
-            color: #fff;
-            padding: 40px 20px 20px;
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #e67e22;
-        }
-
-        .contact-phone {
-            margin-top: 15px;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 100%;
-                margin-top: 10px;
-            }
-        }
-    </style>
+    @media(max-width:850px){nav{gap:12px;font-size:.82rem}.hero-inner{grid-template-columns:1fr}.hero-art{min-height:220px}.product-grid,.benefit-grid,.steps{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:620px){.nav{padding:14px 0;align-items:flex-start;flex-direction:column}nav{width:100%;overflow-x:auto;padding-bottom:5px;white-space:nowrap}.nav .btn{display:none}.hero{padding:60px 0}.trust{grid-template-columns:repeat(2,1fr)}.product-grid,.benefit-grid,.steps{grid-template-columns:1fr}section{padding:58px 0}.hero-art{min-height:180px}.hero-art .symbol{font-size:4rem}}
+  </style>
 </head>
 <body>
-    <!-- HEADER -->
-    <header>
-        <div class="nav-container">
-            <div class="logo">NFC Vendas</div>
-            <ul class="nav-links">
-                <li><a href="#">Inicial</a></li>
-                <li><a href="#">Serviços</a></li>
-                <li><a href="#">Por que NFC?</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </div>
-    </header>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#inicio">◉ NFC <span>Soluções</span><small class="tagline">Conectando você ao que importa</small></a>
+    <nav aria-label="Navegação principal">
+      <a href="#inicio">Início</a><a href="#produtos">Produtos</a><a href="#beneficios">Benefícios</a><a href="#aplicacoes">Aplicações</a><a href="#como-funciona">Como funciona</a><a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn-green" href="https://wa.me/5538999005221">Fale pelo WhatsApp</a>
+  </div>
+</header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>NFC Vendas - Soluções Premium</h1>
-            <p>Identificação por Conferência em NFC para lojas físicas e virtuais</p>
-            <div class="hero-buttons">
-                <a href="#" class="btn-primary">Ver Nossos Produtos</a>
-                <a href="#" class="btn-secondary">Saber Mais</a>
-            </div>
+<main>
+  <section class="hero" id="inicio">
+    <div class="container hero-inner">
+      <div>
+        <div class="eyebrow">Tecnologia simples para aproximar pessoas</div>
+        <h1>Sua marca sempre <span>conectada.</span></h1>
+        <p>Com plaquinhas, chaveiros e cartões NFC, seus clientes acessam seu WhatsApp, Instagram, catálogo, localização e outros canais aproximando o celular compatível.</p>
+        <div class="actions">
+          <a class="btn btn-blue" href="#produtos">Conheça os produtos</a>
+          <a class="btn btn-outline" href="#como-funciona">Veja como funciona</a>
         </div>
-    </section>
+        <div class="trust"><div>⚡ Acesso rápido</div><div>✦ Personalizável</div><div>↻ Links atualizáveis</div><div>◎ Ideal para negócios</div></div>
+      </div>
+      <div class="hero-art">
+        <div><div class="symbol">)))</div><strong>Um toque. Várias conexões.</strong><small>Adicione seus canais digitais em uma experiência prática.</small></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- SERVICES SECTION -->
-    <section class="content-section">
-        <h2 class="section-title">Nosso Produto NFC</h2>
-        <div class="services">
-            <div class="service-card">
-                <i class="fas fa-tag"></i>
-                <h3>Tags NFC</h3>
-                <p>Nossas tags NFC são resistentes, duráveis e ideais para qualquer loja, física ou virtual.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Segurança Total</h3>
-                <p>Proteção contra fraudes e perda de tags com tecnologia de segurança integrada.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-globe"></i>
-                <h3>Global</h3>
-                <p>NFC funciona em qualquer lugar do mundo com compatibilidade internacional.</p>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-catalog"></i>
-                <h3>Expansível</h3>
-                <p>Sua loja pode crescer e você adiciona mais tags conforme precisa.</p>
-            </div>
-        </div>
-    </section>
+  <section class="products" id="produtos">
+    <div class="container">
+      <div class="section-head"><h2>Conheça nossas <span>soluções NFC</span></h2><p>Escolha o formato que combina com seu negócio. Personalização e disponibilidade podem variar conforme o modelo.</p></div>
+      <div class="product-grid">
+        <article class="product"><div class="product-visual"><img src="imagens/plaquinha-nfc.jpg" alt="Plaquinha NFC personalizada" onerror="this.style.display='none';this.parentElement.innerHTML='▣'"></div><div class="product-body"><h3>Plaquinhas NFC</h3><p>Ideais para balcões, recepções, mesas e pontos de atendimento. Facilite o acesso aos seus canais digitais.</p></div></article>
+        <article class="product"><div class="product-visual"><img src="imagens/chaveiro-nfc.jpg" alt="Chaveiro NFC personalizado" onerror="this.style.display='none';this.parentElement.innerHTML='⚿'"></div><div class="product-body"><h3>Chaveiros NFC</h3><p>Uma opção compacta para levar sua presença digital com você e compartilhar seus links de forma prática.</p></div></article>
+        <article class="product"><div class="product-visual"><img src="imagens/cartao-nfc.jpg" alt="Cartão NFC personalizado" onerror="this.style.display='none';this.parentElement.innerHTML='▤'"></div><div class="product-body"><h3>Cartões NFC</h3><p>Uma alternativa moderna ao cartão de visita tradicional, reunindo contatos e redes em um só lugar.</p></div></article>
+      </div>
+    </div>
+  </section>
 
-    <!-- WHY NFC SECTION -->
-    <section class="content-section">
-        <h2 class="section-title">Por que escolher NFC para sua loja?</h2>
-        <div class="why-nfc">
-            <div class="benefit-card">
-                <h3>Vantagem Competitiva</h3>
-                <p>NFC oferece uma experiência de compra mais rápida e segura, diferenciando sua loja da concorrência.</p>
-            </div>
-            <div class="benefit-card">
-                <h3>Experiência do Cliente</h3>
-                <p>Compras mais rápidas em lojas físicas e virtuais aumentam a satisfação e o fidelização.</p>
-            </div>
-            <div class="benefit-card">
-                <h3>Redução de Custos</h3>
-                <p>Automação de processos e maior eficiência operacional reduzem o custo por venda.</p>
-            </div>
-            <div class="benefit-card">
-                <h3>Escala Facilidade</h3>
-                <p>Seu negócio pode crescer sem precisar reinventar o sistema de identificação.</p>
-            </div>
-        </div>
-    </section>
+  <section class="benefits" id="beneficios">
+    <div class="container">
+      <div class="section-head"><h2>Por que escolher <span>NFC?</span></h2><p>Uma experiência mais simples para apresentar seu negócio e facilitar o contato com seus clientes.</p></div>
+      <div class="benefit-grid">
+        <article class="benefit"><div class="ico">⚡</div><h3>Compartilhe com rapidez</h3><p>Direcione o público para seus links sem precisar procurar ou digitar seu perfil.</p></article>
+        <article class="benefit"><div class="ico">✎</div><h3>Vários canais em um só lugar</h3><p>Reúna WhatsApp, Instagram, Facebook, catálogo, endereço e site em uma página.</p></article>
+        <article class="benefit"><div class="ico">↻</div><h3>Mais flexibilidade</h3><p>Quando os links da página mudarem, você pode atualizar o destino digital sem necessariamente trocar a plaquinha, conforme a configuração contratada.</p></article>
+        <article class="benefit"><div class="ico">★</div><h3>Valorize sua marca</h3><p>Apresente sua empresa com uma solução moderna e personalizada para seu atendimento.</p></article>
+        <article class="benefit"><div class="ico">♧</div><h3>Menos material impresso</h3><p>Compartilhe seus dados digitalmente e reduza a necessidade de reimprimir cartões sempre que algo mudar.</p></article>
+        <article class="benefit"><div class="ico">⌂</div><h3>Útil em vários ambientes</h3><p>Use em lojas, salões, restaurantes, consultórios, eventos, veículos e atendimentos profissionais.</p></article>
+      </div>
+      <p style="color:#9fb6ca;text-align:center;margin-top:22px;font-size:.85rem">Observação: a leitura NFC depende de um celular compatível e da função NFC ativada quando necessário. Alguns aparelhos podem exigir aproximação em uma área específica ou leitura por QR Code, se disponível.</p>
+    </div>
+  </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="contact-section">
-        <h2 class="section-title">Entre em Contato</h2>
-        <div class="contact-grid">
-            <div class="contact-card">
-                <h3>Fale Conosco</h3>
-                <p>Estamos prontos para ajudar o seu negócio!</p>
-                <div class="contact-buttons">
-                    <a href="https://whatsapp.com/seu-telefone" class="btn-contact">WhatsApp</a>
-                    <a href="https://instagram.com/seuperfil" class="btn-contact">Instagram</a>
-                    <a href="https://telegram.org/grupo" class="btn-contact">Telegram</a>
-                </div>
-            </div>
-            <div class="contact-card">
-                <h3>Informações</h3>
-                <p>NFC Vendas é especializada em soluções de identificação NFC para lojas físicas e virtuais, com tags, plataformas e suporte.</p>
-                <p>Contate-nos para consultoria gratuita.</p>
-                <div class="contact-phone">+55 11 99999-9999</div>
-            </div>
-        </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-links">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">WhatsApp</a>
-            <a href="#">Telegram</a>
-            <a href="#">Comunidade</a>
-        </div>
-        <p>&copy; 2026 NFC Vendas. Todos os direitos reservados.</p>
-    </footer>
+  <section class="applications" id="aplicacoes">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">NFC na prática</div>
+        <h2>Veja como o NFC pode <span>ajudar diferentes negócios</span></h2>
+        <p>Uma mesma tecnologia, várias maneiras de facilitar o contato com clientes e pessoas.</p>
+      </div>
+      <div class="application-grid">
+        <article class="application-card">
+          <img src="imagens/restaurante-nfc.svg" alt="Ilustração de uma plaquinha NFC sobre a mesa de um restaurante">
+          <div class="application-copy">
+            <span class="application-tag">Restaurantes e cafés</span>
+            <h3>Um toque para abrir o cardápio</h3>
+            <p>Coloque uma plaquinha NFC nas mesas ou no balcão para levar o cliente ao cardápio digital, WhatsApp para pedidos, avaliações e redes sociais.</p>
+            <ul><li>Cardápio e catálogo digital</li><li>Pedidos e reservas pelo WhatsApp</li><li>Avaliações e localização do estabelecimento</li></ul>
+          </div>
+        </article>
+        <article class="application-card">
+          <img src="imagens/pet-nfc.svg" alt="Ilustração de cachorro usando coleira com identificação NFC">
+          <div class="application-copy">
+            <span class="application-tag">Pets e identificação</span>
+            <h3>Ajude seu pet a voltar para casa</h3>
+            <p>Uma tag NFC na coleira pode abrir uma página com o nome do animal e os contatos autorizados do responsável. Quem encontrar o pet pode aproximar um celular compatível e entrar em contato.</p>
+            <ul><li>Contato do tutor</li><li>Informações úteis sobre o animal</li><li>Página editável para atualizar os dados</li></ul>
+            <p class="application-note">Importante: a tag NFC não possui GPS e não mostra a localização do animal. Ela facilita a identificação quando alguém encontra o pet.</p>
+          </div>
+        </article>
+        <article class="application-card">
+          <img src="imagens/barbearia-nfc.svg" alt="Ilustração de plaquinha NFC no balcão de uma barbearia">
+          <div class="application-copy">
+            <span class="application-tag">Barbearias e salões</span>
+            <h3>Transforme visitas em novos agendamentos</h3>
+            <p>Deixe uma plaquinha no balcão ou na estação de atendimento para o cliente acessar rapidamente os canais da barbearia.</p>
+            <ul><li>Agendamento e contato pelo WhatsApp</li><li>Instagram, portfólio e tabela de serviços</li><li>Endereço, horário e promoções</li></ul>
+          </div>
+        </article>
+      </div>
+      <div class="application-bottom">
+        <strong>Seu negócio também pode usar NFC.</strong>
+        <span>Personalizamos a experiência de acordo com o que você precisa divulgar.</span>
+        <a class="btn btn-green" href="https://wa.me/5538999005221">Quero uma solução para meu negócio</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="como-funciona">
+    <div class="container">
+      <div class="section-head"><h2>Como <span>funciona?</span></h2><p>É simples: aproxime, abra e conecte.</p></div>
+      <div class="steps">
+        <article class="step"><div class="number">1</div><h3>Escolha seu produto</h3><p>Defina se prefere plaquinha, chaveiro ou cartão NFC.</p></article>
+        <article class="step"><div class="number">2</div><h3>Personalize sua página</h3><p>Organize os links e informações que deseja compartilhar com seus clientes.</p></article>
+        <article class="step"><div class="number">3</div><h3>Aproxime o celular</h3><p>O aparelho compatível abre o endereço configurado e a pessoa escolhe como entrar em contato.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contato">
+    <div class="container"><h2>Leve sua presença digital para o próximo nível.</h2><p>Peça informações sobre modelos, personalização e valores.</p><a class="btn btn-green" href="https://wa.me/5538999005221">Solicitar orçamento pelo WhatsApp</a></div>
+  </section>
+
+  <section class="social">
+    <div class="container">
+      <div class="section-head"><h2>Conecte-se com a <span>NFC Soluções</span></h2><p>Acompanhe nossas novidades e conheça nossos produtos.</p></div>
+      <div class="social-links">
+        <a class="btn btn-blue" href="https://instagram.com/SEU_PERFIL" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn btn-blue" href="https://facebook.com/SUA_PAGINA" target="_blank" rel="noopener">Facebook</a>
+        <a class="btn btn-green" href="LINK_DA_SUA_PAGINA_DE_VENDAS" target="_blank" rel="noopener">Minha loja / Comprar</a>
+        <a class="btn" style="background:#172e46;color:white" href="https://wa.me/5538999005221">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="container"><strong>NFC Soluções</strong> · Conectando você ao que importa.<br>© 2026 NFC Soluções. Todos os direitos reservados.</div></footer>
 </body>
 </html>
